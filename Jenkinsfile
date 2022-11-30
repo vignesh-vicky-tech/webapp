@@ -15,7 +15,6 @@ pipeline {
      stage ('Build') {
       steps {
                echo "hello world"
-               sh "mvn clean package"
                sh "mvn clean install -U dependency:copy-dependencies"
        }
     }
