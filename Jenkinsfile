@@ -4,6 +4,13 @@ pipeline {
     maven 'Maven'
   }
   stages {
+    stage ('OWASP Dependency-Check Vulnerabilities') {
+      steps {
+        withdependencyCheck('OWASP-Dependency-Check') {
+          sh 'mvn dependency-check:check'
+        }
+      }
+    }
      
     stage ('SAST') {
       steps {
