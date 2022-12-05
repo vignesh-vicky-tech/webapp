@@ -18,6 +18,14 @@ pipeline {
       sh 'mvn clean package'
        }
     }
+     stage ('OWASP Dependency-Check Vulnerabilities') {
+      steps {
+        dependencyCheck('OWASP-Dependency-Check') {
+          sh 'mvn dependency-check:check'
+        }
+      }
+    }
+   
     }
 }
     
