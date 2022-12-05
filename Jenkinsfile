@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage ('OWASP Dependency-Check Vulnerabilities') {
       steps {
-        withdependencyCheck('OWASP-Dependency-Check') {
+        dependencyCheck('OWASP-Dependency-Check') {
           sh 'mvn dependency-check:check'
         }
       }
