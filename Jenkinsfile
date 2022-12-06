@@ -4,6 +4,13 @@ pipeline {
     maven 'Maven'
   }
   stages {
+       /*stage ('Source Composition Analysis') {
+      steps {
+         sh 'wget "https://raw.githubusercontent.com/vignesh-vicky-tech/webapp/main/owasp-dependency-check.sh" '
+         sh 'chmod +x owasp-dependency-check.sh'
+         sh 'bash owasp-dependency-check.sh'
+         }
+    }*/
       stage ('SAST') {
       steps {
         withSonarQubeEnv('sonarqube') {
@@ -23,7 +30,7 @@ pipeline {
    }
      stage ('DAST') {
       steps {
-         sh 'docker run -t owasp/zap2docker-stable zap-full-scan.py -t http://172.30.44.95:8085/WebApp/ || true'
+         sh 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://172.30.44.95:8085/WebApp/ || true'
         }
     }
     
