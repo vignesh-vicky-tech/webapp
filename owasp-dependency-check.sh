@@ -1,5 +1,4 @@
 #!/bin/sh
-DC_VERSION="latest"
 DC_DIRECTORY="$HOME/OWASP-Dependency-Check"
 DATA_DIRECTORY="$DC_DIRECTORY/data"
 REPORT_DIRECTORY="$DC_DIRECTORY/reports"
@@ -21,7 +20,7 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
     mkdir -p "$CACHE_DIRECTORY"
     chmod -R 777 "$CACHE_DIRECTORY"
 fi
-docker pull owasp/dependency-check:$DC_VERSION
+docker pull owasp/dependency-check
 docker run --rm \
     --volume $(pwd):/src \
     --volume "$DATA_DIRECTORY":/usr/share/dependency-check/data \
