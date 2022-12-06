@@ -1,7 +1,6 @@
 #!/bin/sh
 DC_VERSION="latest"
 DC_DIRECTORY="$HOME/OWASP-Dependency-Check"
-DC_PROJECT="dependency-check scan: $(pwd)"
 DATA_DIRECTORY="$DC_DIRECTORY/data"
 REPORT_DIRECTORY="$DC_DIRECTORY/reports"
 CACHE_DIRECTORY="$DC_DIRECTORY/data/cache"
@@ -30,5 +29,5 @@ docker run --rm \
     owasp/dependency-check \
     --scan /src \
     --format "ALL" \
-    --project "$DC_PROJECT" \
+    --project "My OWASP Dependency Check Project" \
     --out /report
