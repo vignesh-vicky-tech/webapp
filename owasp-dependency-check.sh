@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 DC_VERSION="latest"
 DC_DIRECTORY=$HOME/OWASP-Dependency-Check
 DC_PROJECT="dependency-check scan: $(pwd)"
@@ -20,8 +20,8 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
 fi
 docker pull owasp/dependency-check:$DC_VERSION
 docker run --rm \
-    --volume $(pwd):/src:z \
-    --volume "$DATA_DIRECTORY":/usr/share/dependency-check/data:z \
+    --volume $(pwd):/src \
+    --volume "$DATA_DIRECTORY":/usr/share/dependency-check/data \
     --volume "$REPORT_DIRECTORY":/report \
     owasp/dependency-check \
     --scan /src \
