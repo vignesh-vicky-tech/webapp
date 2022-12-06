@@ -5,7 +5,6 @@ DC_PROJECT="dependency-check scan: $(pwd)"
 DATA_DIRECTORY="$DC_DIRECTORY/data"
 REPORT_DIRECTORY="$DC_DIRECTORY/reports"
 CACHE_DIRECTORY="$DC_DIRECTORY/data/cache"
-
 if [ ! -d "$DATA_DIRECTORY" ]; then
     echo "Initially creating persistent directory: $DATA_DIRECTORY"
     mkdir -p "$DATA_DIRECTORY"
@@ -19,10 +18,7 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
     mkdir -p "$CACHE_DIRECTORY"
     chmod -R 777 "$CACHE_DIRECTORY"
 fi
-
-
 docker pull owasp/dependency-check:$DC_VERSION
-
 docker run --rm \
     -e user=$USER \
     -u $(id -u ${USER}):$(id -g ${USER}) \
