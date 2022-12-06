@@ -13,6 +13,13 @@ if [ ! -d "$DATA_DIRECTORY" ]; then
     mkdir -p "$REPORT_DIRECTORY"
     chmod -R 777 "$REPORT_DIRECTORY"
 fi
+
+if [ ! -d "$REPORT_DIRECTORY" ]; then
+    echo "Initially creating persistent directory: $REPORT_DIRECTORY"
+    mkdir -p "$REPORT_DIRECTORY"
+    chmod -R 777 "$REPORT_DIRECTORY"
+fi
+
 if [ ! -d "$CACHE_DIRECTORY" ]; then
     echo "Initially creating persistent directory: $CACHE_DIRECTORY"
     mkdir -p "$CACHE_DIRECTORY"
