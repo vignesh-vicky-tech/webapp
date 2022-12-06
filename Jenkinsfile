@@ -21,6 +21,11 @@ pipeline {
      sh 'cp target/WebApp.war /prod/apache-tomcat-9.0.70/webapps/WebApp.war'
      }
    }
+     stage ('DAST') {
+      steps {
+         sh 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://172.30.44.95:8085/WebApp/ || true'
+        }
+    }
     
    }
 }
