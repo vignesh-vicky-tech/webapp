@@ -1,6 +1,6 @@
 #!/bin/sh
 DC_VERSION="latest"
-DC_DIRECTORY=$HOME/OWASP-Dependency-Check
+DC_DIRECTORY="$HOME/OWASP-Dependency-Check"
 DC_PROJECT="dependency-check scan: $(pwd)"
 DATA_DIRECTORY="$DC_DIRECTORY/data"
 REPORT_DIRECTORY="$DC_DIRECTORY/reports"
@@ -9,9 +9,6 @@ if [ ! -d "$DATA_DIRECTORY" ]; then
     echo "Initially creating persistent directory: $DATA_DIRECTORY"
     mkdir -p "$DATA_DIRECTORY"
     chmod -R 777 "$DATA_DIRECTORY"
-    
-    mkdir -p "$REPORT_DIRECTORY"
-    chmod -R 777 "$REPORT_DIRECTORY"
 fi
 
 if [ ! -d "$REPORT_DIRECTORY" ]; then
