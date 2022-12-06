@@ -16,9 +16,7 @@ pipeline {
       sh 'mvn clean package'
        }
     }
-    stage('Deploy to Tomcat'){
-     sh 'cpy target/WebApp.war /prod/apache-tomcat-9.0.70/webapps/WebApp.war'
-   }
+    
     
    }
 }
