@@ -1,5 +1,4 @@
 #!/bin/sh
-
 DC_VERSION="latest"
 DC_DIRECTORY=$HOME/OWASP-Dependency-Check
 DC_PROJECT="dependency-check scan: $(pwd)"
@@ -15,7 +14,7 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
     mkdir -p "$CACHE_DIRECTORY"
 fi
 
-# Make sure we are using the latest version
+
 docker pull owasp/dependency-check:$DC_VERSION
 
 docker run --rm \
@@ -29,5 +28,3 @@ docker run --rm \
     --format "ALL" \
     --project "$DC_PROJECT" \
     --out /report
-    # Use suppression like this: (where /src == $pwd)
-    # --suppression "/src/security/dependency-check-suppression.xml"
