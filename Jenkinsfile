@@ -14,8 +14,9 @@ pipeline {
     
     stage('dependency-check'){
     steps{
-        sh 'dependencyCheck additionalArguments: scan="https://github.com/vignesh-vicky-tech/webapp.git" --format HTML, odcInstallation: OWASP-Dependency-Check'
-          }
+      dependencyCheck('OWASP-Dependency-Check'){
+        sh 'scan="https://github.com/vignesh-vicky-tech/webapp.git" --format HTML'
+        }
     }
 
       stage ('SAST') {
