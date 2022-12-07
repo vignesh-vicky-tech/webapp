@@ -15,7 +15,7 @@ pipeline {
     stage('dependency-check'){
     steps{
       dependencyCheck('OWASP-Dependency-Check'){
-        sh 'scan="https://github.com/vignesh-vicky-tech/webapp.git" --format HTML'
+        sh '--scan="https://github.com/vignesh-vicky-tech/webapp.git" --format HTML'
         }
     }
 
