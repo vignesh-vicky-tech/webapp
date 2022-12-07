@@ -11,6 +11,13 @@ pipeline {
          sh 'bash owasp-dependency-check.sh'
          }
     }*/
+    
+    stage('dependency-check'){
+    steps{
+        sh "dependencyCheck additionalArguments: 'scan="https://github.com/vignesh-vicky-tech/webapp.git" --format HTML', odcInstallation: 'OWASP-Dependency-Check'"
+          }
+    }
+
       stage ('SAST') {
       steps {
         withSonarQubeEnv('sonarqube') {
