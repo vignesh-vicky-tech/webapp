@@ -4,20 +4,7 @@ pipeline {
     maven 'Maven'
   }
   stages {
-       /*stage ('Source Composition Analysis') {
-      steps {
-         sh 'wget "https://raw.githubusercontent.com/vignesh-vicky-tech/webapp/main/owasp-dependency-check.sh" '
-         sh 'chmod +x owasp-dependency-check.sh'
-         sh 'bash owasp-dependency-check.sh'
-         }
-    }*/
-    
-   /* stage('dependency-check'){
-    steps{
-      dependencyCheck('OWASP-Dependency-Check'){
-        sh 'dependencyCheck additionalArguments: scan="https://github.com/vignesh-vicky-tech/webapp.git" --format HTML, odcInstallation: OWASP-Dependency-Check'
-        }
-    }*/
+       
 
       stage ('SAST') {
       steps {
